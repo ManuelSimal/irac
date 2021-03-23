@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Very simple WebRTC application with a Node.js signalling server</title>
+<h2>This is the WebRTC app of IRAC Equipo 30</h2>
+</head>
+<body>
+	<style>
+		.containersStyle{
+			margin: 1% 1%;
+			width: 95%;
+			position: relative;
+			z-index: 1;
+			top:0;
+			left:0;
+		}	
+		.local_video{
+			width: 15%;
+			height: auto;
+			position: relative;
+			z-index: 3;
+			right: 10%;
+			bottom: 10%;
+		}
+		.remote_video{
+			width: 60%;
+			height: auto;
+			position: absolute;
+			z-index: 2;
+			top:0;
+			right: 10%;
+		}
+		.dataChannelStyle{
+			background-color: #FCF8AE;
+			opacity:0.3;
+			width: 25%;
+			height: auto;
+			padding: 5px;
+			position: relative;
+			z-index:4;
+			top: 0;
+			left:5%;
+		}
+		.dataChannelReceive {
+			background-color: #b3ffd9;
+			font-size: 12px
+			opacity: 0.7;
+		}
+		.dataChannelSend {
+			background-color: #b3ffd9;
+			font-size: 12px
+			opacity: 0.7;
+		}
+		.sendButton {
+			background-color: #00b3b3;
+			border: none;
+			color: white;
+			padding: 5px;
+			text-align: center;
+			position: absolute;
+			bottom: 5px;
+			right: 5px;
+		}
+
+	</style>
+
+	<div id="Containers" class="containersStyle">
+		<video id="localVideo" class="local_video" muted autoplay></video>
+		<video id="remoteVideo" class="remote_video" autoplay></video>
+
+		<div id="dataChannel" class="dataChannelStyle">
+			<textarea rows="30" cols="40" id="dataChannelReceive" disabled></textarea>
+			<textarea rows="6" cols="40" id="dataChannelSend" type="text" size="100" disabled></textarea>
+			<button id="sendButton" disabled>Send</button>
+		</div>
+	</div>
+
+	<script src='/socket.io/socket.io.js'></script>
+	<script src='js/completeNodeClientWithDataChannel.js'></script>
+
+</body>
+</html>
